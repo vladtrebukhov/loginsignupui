@@ -2,7 +2,7 @@ import CreateAccountForm from "./components/CreateAccountForm";
 import Header from "./components/Header";
 
 const SignUp = () => (
-  <div class="signUpPage">
+  <div className="signUpPage">
     <Header />
     <CreateAccountForm />
   </div>

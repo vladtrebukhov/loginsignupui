@@ -9666,7 +9666,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header */ "./pages/components/Header.js");
 /* harmony import */ var _components_ActionMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ActionMenu */ "./pages/components/ActionMenu.js");
+/* harmony import */ var _components_CenterLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/CenterLayout */ "./pages/components/CenterLayout.js");
 var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/Welcome.js";
+
 
 
 
@@ -9676,22 +9678,28 @@ var Welcome = function Welcome() {
     className: "welcomePage",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ActionMenu__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: this
-  }));
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CenterLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ActionMenu__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Welcome);
@@ -9760,6 +9768,41 @@ var ActionMenu = function ActionMenu() {
 
 /***/ }),
 
+/***/ "./pages/components/CenterLayout.js":
+/*!******************************************!*\
+  !*** ./pages/components/CenterLayout.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/components/CenterLayout.js";
+
+var containerCenter = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center"
+};
+
+var CenterLayout = function CenterLayout(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container-center",
+    style: containerCenter,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, props.children);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CenterLayout);
+
+/***/ }),
+
 /***/ "./pages/components/Header.js":
 /*!************************************!*\
   !*** ./pages/components/Header.js ***!
@@ -9777,57 +9820,55 @@ var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/compo
 
 
 var linkStyle = {
-  marginRight: 15
+  paddingRight: 15,
+  float: "right",
+  cursor: "pointer"
 };
 var headerStyle = {
-  color: "red"
+  backgroundColor: "gray",
+  height: "50px",
+  position: "relative"
 };
 
 var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     style: headerStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 16
     },
     __self: this
-  }, "Welcome"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 17
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     style: linkStyle,
     className: "header-nav",
     id: "header-nav-home",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 18
     },
     __self: this
   }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 22
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     style: linkStyle,
     className: "header-nav",
     id: "header-nav-about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 23
     },
     __self: this
   }, "About")));

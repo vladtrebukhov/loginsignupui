@@ -1,25 +1,28 @@
 import Link from "next/link";
 
 const linkStyle = {
-  marginRight: 15
+  paddingRight: 15,
+  float: "right",
+  cursor: "pointer"
 };
 
 const headerStyle = {
-  color: "red"
+  backgroundColor: "gray",
+  height: "50px",
+  position: "relative"
 };
 
 const Header = props => (
-  <div className="header">
-    <h2 style={headerStyle}>Welcome</h2>
+  <div className="header" style={headerStyle}>
     <Link href="/">
-      <a style={linkStyle} className="header-nav" id="header-nav-home">
+      <ul style={linkStyle} className="header-nav" id="header-nav-home">
         Home
-      </a>
+      </ul>
     </Link>
     <Link href="/about">
-      <a style={linkStyle} className="header-nav" id="header-nav-about">
+      <ul style={linkStyle} className="header-nav" id="header-nav-about">
         About
-      </a>
+      </ul>
     </Link>
   </div>
 );

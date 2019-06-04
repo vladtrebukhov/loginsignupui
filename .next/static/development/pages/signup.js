@@ -9666,19 +9666,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/components/CreateAccountForm.js";
 
+var formGridStyle = {
+  display: "inline-grid"
+};
 
-// import './css/createaccount.css';
 var CreateAccountForm = function CreateAccountForm() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     action: "POST",
-    className: "createAccountForm",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 4
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "container",
+    id: "createAccountForm",
+    className: "container-form-grid",
+    style: formGridStyle,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 5
@@ -9690,7 +9687,7 @@ var CreateAccountForm = function CreateAccountForm() {
     placeholder: "Email address",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 11
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -9699,7 +9696,7 @@ var CreateAccountForm = function CreateAccountForm() {
     placeholder: "First name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 12
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -9708,7 +9705,7 @@ var CreateAccountForm = function CreateAccountForm() {
     placeholder: "Last name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 13
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -9717,7 +9714,7 @@ var CreateAccountForm = function CreateAccountForm() {
     placeholder: "Create a Password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 14
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -9725,10 +9722,10 @@ var CreateAccountForm = function CreateAccountForm() {
     value: "Sign up",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 15
     },
     __self: this
-  })));
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CreateAccountForm);
@@ -9752,57 +9749,55 @@ var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/compo
 
 
 var linkStyle = {
-  marginRight: 15
+  paddingRight: 15,
+  float: "right",
+  cursor: "pointer"
 };
 var headerStyle = {
-  color: "red"
+  backgroundColor: "gray",
+  height: "50px",
+  position: "relative"
 };
 
 var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     style: headerStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 16
     },
     __self: this
-  }, "Welcome"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 17
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     style: linkStyle,
     className: "header-nav",
     id: "header-nav-home",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 18
     },
     __self: this
   }, "Home")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 22
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
     style: linkStyle,
     className: "header-nav",
     id: "header-nav-about",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 23
     },
     __self: this
   }, "About")));
@@ -9832,7 +9827,7 @@ var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/signu
 
 var SignUp = function SignUp() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "signUpPage",
+    className: "signUpPage",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 5
