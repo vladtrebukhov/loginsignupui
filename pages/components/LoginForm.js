@@ -1,5 +1,8 @@
 const formGridStyle = {
-  display: "inline-grid"
+  display: "inline-grid",
+  lineHeight: "24px",
+  width: "475px",
+  height: "300px"
 };
 
 const LoginForm = () => (

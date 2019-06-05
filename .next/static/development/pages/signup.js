@@ -9666,66 +9666,97 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/components/CreateAccountForm.js";
 
+var centerStyle = {
+  textAlign: "center"
+};
 var formGridStyle = {
-  display: "inline-grid"
+  position: "relative",
+  top: "5em",
+  display: "inline-block",
+  width: "480px",
+  height: "300px"
+};
+var inputStyle = {
+  width: "475px",
+  paddingTop: "11px",
+  fontSize: "16px",
+  letterSpacing: "normal",
+  paddingBottom: "11px",
+  lineHeight: "24px",
+  borderRadius: "5px",
+  marginBottom: "20px",
+  borderWidth: "1px"
 };
 
 var CreateAccountForm = function CreateAccountForm() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "signUpPage",
+    style: centerStyle,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     action: "POST",
     id: "createAccountForm",
     className: "container-form-grid",
     style: formGridStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 27
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: inputStyle,
     type: "text",
     name: "email",
     placeholder: "Email address",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 33
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: inputStyle,
     type: "text",
     name: "fname",
     placeholder: "First name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 39
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: inputStyle,
     type: "text",
     name: "lname",
     placeholder: "Last name",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 45
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: inputStyle,
     type: "text",
     name: "password",
     placeholder: "Create a Password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 51
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    style: inputStyle,
     type: "submit",
     value: "Sign up",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 57
     },
     __self: this
-  }));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (CreateAccountForm);
@@ -9827,7 +9858,7 @@ var _jsxFileName = "/Users/admin/Desktop/javascript/projects/loginui/pages/signu
 
 var SignUp = function SignUp() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "signUpPage",
+    className: "signUpContainer",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 5
@@ -9852,7 +9883,7 @@ var SignUp = function SignUp() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!*******************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fsignup&absolutePagePath=%2FUsers%2Fadmin%2FDesktop%2Fjavascript%2Fprojects%2Floginui%2Fpages%2Fsignup.js ***!
   \*******************************************************************************************************************************************************/
@@ -9875,5 +9906,5 @@ module.exports = dll_1aef2d0bbc0d334d831c;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=signup.js.map
