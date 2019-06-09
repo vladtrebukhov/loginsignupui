@@ -1,13 +1,13 @@
 import Header from "./components/Header";
 import ActionMenu from "./components/ActionMenu";
-import CenterLayout from "./components/CenterLayout";
+import css from "./css/welcomepage.css";
 
-const Welcome = () => (
+const Welcome = props => (
   <div className="welcomePage">
     <Header />
-    <CenterLayout>
+    <div className={css.container}>
       <ActionMenu />
-    </CenterLayout>
+    </div>
   </div>
 );
 

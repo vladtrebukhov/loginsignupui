@@ -1,18 +1,26 @@
 import Link from "next/link";
 
-const ActionMenu = () => (
-  <div className="action-buttons">
-    <Link href="/signup">
-      <button className="button" id="signup-button">
-        Sign Up
-      </button>
-    </Link>
-    <Link href="/login">
-      <button className="button" id="login-button">
-        Login
-      </button>
-    </Link>
-  </div>
+const ButtonLink = props => (
+  <Link href={props.formURL}>
+    <button className="button" id={props.buttonId}>
+      {props.buttonText}
+    </button>
+  </Link>
 );
 
-export default ActionMenu;
+export default function ActionMenu() {
+  return (
+    <div className="action-buttons">
+      <ButtonLink
+        formURL="/signup"
+        buttonId="signup-button"
+        buttonText="Sign Up"
+      />
+      <ButtonLink
+        formURL="/login"
+        buttonId="login-button"
+        buttonText="Log In"
+      />
+    </div>
+  );
+}
