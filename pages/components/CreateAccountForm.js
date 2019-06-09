@@ -1,3 +1,5 @@
+import React, { Component } from "react";
+
 const centerStyle = {
   textAlign: "center"
 };
@@ -22,41 +24,64 @@ const inputStyle = {
   borderWidth: "1px"
 };
 
-const CreateAccountForm = () => (
-  <div className="signUpPage" style={centerStyle}>
-    <form
-      action="POST"
-      id="createAccountForm"
-      className="container-form-grid"
-      style={formGridStyle}
-    >
-      <input
-        style={inputStyle}
-        type="text"
-        name="email"
-        placeholder="Email address"
-      />
-      <input
-        style={inputStyle}
-        type="text"
-        name="fname"
-        placeholder="First name"
-      />
-      <input
-        style={inputStyle}
-        type="text"
-        name="lname"
-        placeholder="Last name"
-      />
-      <input
-        style={inputStyle}
-        type="text"
-        name="password"
-        placeholder="Create a Password"
-      />
-      <input style={inputStyle} type="submit" value="Sign up" />
-    </form>
-  </div>
-);
+class CreateAccountForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      fname: "",
+      lname: "",
+      password: ""
+    };
+  }
+
+  populateUserField = event => {
+    console.log(this.state[event.target.name]);
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render() {
+    return (
+      <div className="signUpPage" style={centerStyle}>
+        <form
+          action="POST"
+          id="createAccountForm"
+          className="container-form-grid"
+          style={formGridStyle}
+        >
+          <input
+            style={inputStyle}
+            type="text"
+            name="email"
+            placeholder="Email address"
+            onChange={this.populateUserField}
+          />
+          <input
+            style={inputStyle}
+            type="text"
+            name="fname"
+            placeholder="First name"
+            onChange={this.populateUserField}
+          />
+          <input
+            style={inputStyle}
+            type="text"
+            name="lname"
+            placeholder="Last name"
+            onChange={this.populateUserField}
+          />
+          <input
+            style={inputStyle}
+            type="text"
+            name="password"
+            placeholder="Create a Password"
+            onChange={this.populateUserField}
+          />
+          <input style={inputStyle} type="submit" value="Sign up" />
+        </form>
+      </div>
+    );
+  }
+}
 
 export default CreateAccountForm;
