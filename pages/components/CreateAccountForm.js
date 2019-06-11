@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import User from "../../UserSchema";
 
 const centerStyle = {
   textAlign: "center"
@@ -36,18 +37,34 @@ class CreateAccountForm extends Component {
   }
 
   populateUserField = event => {
-    console.log(this.state[event.target.name]);
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  createNewUser = event => {
+    event.preventDefault();
+
+    const newUser = new User({
+      email: this.state.email,
+      firstName: this.state.fname,
+      lastName: this.state.lastName,
+      password: this.state.password,
+      userType: "Free",
+      date: Date.now()
+    });
+
+    console.log(newUser);
+
+    // await newUser.save();
   };
 
   render() {
     return (
       <div className="signUpPage" style={centerStyle}>
         <form
-          action="POST"
           id="createAccountForm"
           className="container-form-grid"
           style={formGridStyle}
+          onSubmit={this.createNewUser}
         >
           <input
             style={inputStyle}
