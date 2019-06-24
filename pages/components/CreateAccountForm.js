@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import User from "../../UserSchema";
+import userModel from "../../schemas/userSchema";
+
+console.log(userModel);
 
 const centerStyle = {
   textAlign: "center"
@@ -9,7 +11,7 @@ const formGridStyle = {
   position: "relative",
   top: "5em",
   display: "inline-block",
-  width: "480px",
+  maxWidth: "480px",
   height: "300px"
 };
 
@@ -32,29 +34,40 @@ class CreateAccountForm extends Component {
       email: "",
       fname: "",
       lname: "",
-      password: ""
+      password: "",
+      passwordconfirm: ""
     };
   }
 
-  populateUserField = event => {
+  populateUserData = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  checkPasswordsMatch = event => {
+    if (this.state.password === this.state.passwordconfirm) {
+      console.log("passwords match");
+    } else {
+      console.log("passwords DONT match");
+    }
   };
 
   createNewUser = event => {
     event.preventDefault();
+    this.checkPasswordsMatch();
 
-    const newUser = new User({
+    const newUser = new userModel({
       email: this.state.email,
       firstName: this.state.fname,
-      lastName: this.state.lastName,
+      lastName: this.state.lname,
       password: this.state.password,
       userType: "Free",
-      date: Date.now()
+      dateCreated: Date.now()
     });
 
     console.log(newUser);
-
-    // await newUser.save();
+    // new User(newUser).save().then(user => {
+    //   console.log(user);
+    // });
   };
 
   render() {
@@ -71,28 +84,38 @@ class CreateAccountForm extends Component {
             type="text"
             name="email"
             placeholder="Email address"
-            onChange={this.populateUserField}
+            onChange={this.populateUserData}
+            required
           />
           <input
             style={inputStyle}
             type="text"
             name="fname"
             placeholder="First name"
-            onChange={this.populateUserField}
+            onChange={this.populateUserData}
           />
           <input
             style={inputStyle}
             type="text"
             name="lname"
             placeholder="Last name"
-            onChange={this.populateUserField}
+            onChange={this.populateUserData}
           />
           <input
             style={inputStyle}
-            type="text"
+            type="password"
             name="password"
             placeholder="Create a Password"
-            onChange={this.populateUserField}
+            onChange={this.populateUserData}
+            required
+          />
+          <input
+            style={inputStyle}
+            type="password"
+            name="passwordconfirm"
+            placeholder="Confirm Password"
+            onChange={this.populateUserData}
+            required
           />
           <input style={inputStyle} type="submit" value="Sign up" />
         </form>

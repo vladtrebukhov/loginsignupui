@@ -93,52 +93,6 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./UserSchema.js":
-/*!***********************!*\
-  !*** ./UserSchema.js ***!
-  \***********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/date/now */ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var mongoose = __webpack_require__(/*! mongoose */ "mongoose");
-
-var Schema = mongoose.Schema;
-var userSchema = new Schema({
-  email: {
-    type: String,
-    required: true
-  },
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
-    type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  userType: {
-    type: String,
-    required: true
-  },
-  date: {
-    type: Date,
-    default: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
-  }
-});
-/* harmony default export */ __webpack_exports__["default"] = (mongoose.model("User", userSchema));
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/date/now.js ***!
@@ -964,7 +918,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _UserSchema__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../UserSchema */ "./UserSchema.js");
+/* harmony import */ var _schemas_userSchema__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../schemas/userSchema */ "./schemas/userSchema.js");
+/* harmony import */ var _schemas_userSchema__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_schemas_userSchema__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -975,6 +930,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+console.log(_schemas_userSchema__WEBPACK_IMPORTED_MODULE_9___default.a);
 var centerStyle = {
   textAlign: "center"
 };
@@ -982,7 +938,7 @@ var formGridStyle = {
   position: "relative",
   top: "5em",
   display: "inline-block",
-  width: "480px",
+  maxWidth: "480px",
   height: "300px"
 };
 var inputStyle = {
@@ -1009,28 +965,42 @@ function (_Component) {
 
     _this = Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(CreateAccountForm).call(this));
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "populateUserField", function (event) {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "populateUserData", function (event) {
       _this.setState(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])({}, event.target.name, event.target.value));
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "checkPasswordsMatch", function (event) {
+      if (_this.state.password === _this.state.passwordconfirm) {
+        console.log("passwords match");
+      } else {
+        console.log("passwords DONT match");
+      }
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "createNewUser", function (event) {
       event.preventDefault();
-      var newUser = new _UserSchema__WEBPACK_IMPORTED_MODULE_9__["default"]({
+
+      _this.checkPasswordsMatch();
+
+      var newUser = new _schemas_userSchema__WEBPACK_IMPORTED_MODULE_9___default.a({
         email: _this.state.email,
         firstName: _this.state.fname,
-        lastName: _this.state.lastName,
+        lastName: _this.state.lname,
         password: _this.state.password,
         userType: "Free",
-        date: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
+        dateCreated: _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()()
       });
-      console.log(newUser); // await newUser.save();
+      console.log(newUser); // new User(newUser).save().then(user => {
+      //   console.log(user);
+      // });
     });
 
     _this.state = {
       email: "",
       fname: "",
       lname: "",
-      password: ""
+      password: "",
+      passwordconfirm: ""
     };
     return _this;
   }
@@ -1051,25 +1021,34 @@ function (_Component) {
         type: "text",
         name: "email",
         placeholder: "Email address",
-        onChange: this.populateUserField
+        onChange: this.populateUserData,
+        required: true
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
         style: inputStyle,
         type: "text",
         name: "fname",
         placeholder: "First name",
-        onChange: this.populateUserField
+        onChange: this.populateUserData
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
         style: inputStyle,
         type: "text",
         name: "lname",
         placeholder: "Last name",
-        onChange: this.populateUserField
+        onChange: this.populateUserData
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
         style: inputStyle,
-        type: "text",
+        type: "password",
         name: "password",
         placeholder: "Create a Password",
-        onChange: this.populateUserField
+        onChange: this.populateUserData,
+        required: true
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
+        style: inputStyle,
+        type: "password",
+        name: "passwordconfirm",
+        placeholder: "Confirm Password",
+        onChange: this.populateUserData,
+        required: true
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
         style: inputStyle,
         type: "submit",
@@ -1202,6 +1181,53 @@ var SignUp = function SignUp() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SignUp);
+
+/***/ }),
+
+/***/ "./schemas/userSchema.js":
+/*!*******************************!*\
+  !*** ./schemas/userSchema.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime-corejs2/helpers/interopRequireDefault */ "./node_modules/@babel/runtime-corejs2/helpers/interopRequireDefault.js");
+
+var _now = _interopRequireDefault(__webpack_require__(/*! @babel/runtime-corejs2/core-js/date/now */ "./node_modules/@babel/runtime-corejs2/core-js/date/now.js"));
+
+var mongoose = __webpack_require__(/*! mongoose */ "mongoose");
+
+var Schema = mongoose.Schema;
+var userSchema = new Schema({
+  email: {
+    type: String,
+    required: true
+  },
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  userType: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: (0, _now.default)()
+  }
+});
+module.exports = mongoose.model("user") || mongoose.model("user", userSchema, "user");
 
 /***/ }),
 
